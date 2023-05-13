@@ -48,7 +48,7 @@ class ChatGPTModel(Model):
 
     def reply_text(self, query, user_id, retry_count=0):
         try:
-            chatbot = Chatbot(api_key="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")
+            chatbot = Chatbot(api_key=openai.api_key)
             reply_content = chatbot.ask(query)
             log.info("测试=========>>>>>>>>" + reply_content)
             # response = openai.ChatCompletion.create(
