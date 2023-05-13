@@ -64,9 +64,9 @@ class ChatGPTModel(Model):
             # used_token = response['usage']['total_tokens']
             # log.debug(response)
             log.info("[CHATGPT] reply={}", reply_content)
-            # if reply_content:
-            #     # save conversation
-            #     Session.save_session(query, reply_content, user_id, used_token)
+            if reply_content:
+                # save conversation
+                Session.save_session(query, reply_content, user_id, 0)
             # return response.choices[0]['message']['content']
             return reply_content
         # try:
