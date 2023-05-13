@@ -48,9 +48,10 @@ class ChatGPTModel(Model):
 
     def reply_text(self, query, user_id, retry_count=0):
         try:
+            log.info(openai.api_key)
             chatbot = Chatbot(api_key=openai.api_key)
-            reply_content = chatbot.ask(query)
-            log.info("测试=========>>>>>>>>" + reply_content)
+            log.info(query[-1]['content'])
+            reply_content = chatbot.ask(query[-1]['content'])
             # response = openai.ChatCompletion.create(
             #     model= model_conf(const.OPEN_AI).get("model") or "gpt-3.5-turbo",  # 对话模型的名称
             #     messages=query,
